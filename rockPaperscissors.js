@@ -21,7 +21,6 @@ function roundPlay(computerSelection, playerSelection) {
    playerSelection=="paper" && computerSelection=="rock" || playerSelection=="scissors" && computerSelection=="paper") {
        return "Player 1 is the winner of this round"
    } else {
-       console.log(`playerSelection: ${playerSelection} \n compuerSelection: ${computerSelection}`)
        return "The computer is the winner of this round"
    }
 }
