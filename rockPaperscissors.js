@@ -30,6 +30,16 @@ function assertValidChoice(playerSelection) {
     if (choices.indexOf(playerSelection) >= 0) return true
     else return false
 }
+function selection() {
+    computerSelection = computerPlay()
+    playerSelection = prompt('Select your weapon:');
+    //make sure that playerSelection and computerSelection are not the same
+    while (computerSelection == playerSelection.trim()) {
+        console.log('This round is even. Go for another round!')
+        computerSelection = computerPlay();
+        playerSelection = prompt('Select your weapon agian')
+    }
+}
 function game() {
     /*Play 5 rounds of the game by calling roundPlay 5x.
     Keep score of the winner of each game. Calculate the winner of all the games.
@@ -37,15 +47,8 @@ function game() {
     */
    score = [0, 0]
    for (let i=0; i<5; i++) {
-       computerSelection = computerPlay();
-       playerSelection = prompt('Select your weapon:');
-
-       //make sure that playerSelection and computerSelection are not the same
-       while (computerSelection == playerSelection.trim()) {
-           console.log('This round is even. Go for another round!')
-           computerSelection = computerPlay();
-           playerSelection = prompt('Select your weapon agian')
-       }
+       //invoke computer and playerSelection
+       selection()
        
        //Assert valid player choice
        choiceValidity = assertValidChoice(playerSelection)
