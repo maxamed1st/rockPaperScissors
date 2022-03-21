@@ -1,3 +1,4 @@
+choices = ["rock", "paper", "scissors"]
 function getRandInt(max) {
     //Get random integer between 0 and max
     return Math.floor(Math.random() * max)
@@ -5,7 +6,6 @@ function getRandInt(max) {
 
 function computerPlay() {
     //Randomly generate rock, paper or scissors
-    choices = ["rock", "paper", "scissors"]
     randInt = getRandInt(3)
     return choices[randInt]
 
@@ -25,7 +25,6 @@ function roundPlay(computerSelection, playerSelection) {
 }
 function assertValidChoice(playerSelection) {
     //Assert valid choices for the player
-    choices = ["rock", "paper", "scissors"]
     playerSelection = playerSelection.toLowerCase().trim()
     if (choices.indexOf(playerSelection) >= 0) return true
     else return false
