@@ -23,12 +23,7 @@ function roundPlay(computerSelection, playerSelection) {
        return `Computer is the winner of this round \n${computerSelection} beats ${playerSelection}`
    }
 }
-function assertValidChoice(playerSelection) {
-    //Assert valid choices for the player
-    playerSelection = playerSelection.toLowerCase().trim()
-    if (choices.indexOf(playerSelection) >= 0) return true
-    else return false
-}
+
 function selection() {
     computerSelection = computerPlay()
     playerSelection = prompt('Select your weapon:');
@@ -47,14 +42,6 @@ function game() {
    for (let i=0; i<5; i++) {
        //invoke computer and playerSelection
        selection()
-       
-       //Assert valid player choice
-       choiceValidity = assertValidChoice(playerSelection)
-       while (choiceValidity===false) {
-           playerSelection = prompt('You have chosen an insufficient weapon for this war. \
-           Remember this is a game of rock, paper scissors and choose again!');
-           choiceValidity = assertValidChoice(playerSelection)
-        }
 
        //determend winner and update score
        winner = roundPlay(computerSelection, playerSelection);
